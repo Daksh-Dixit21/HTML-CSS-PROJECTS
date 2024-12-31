@@ -1,0 +1,420 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Courier New', Courier, monospace;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(180deg, #0e0d0e 0% 55%, #293746);
+}
+.container{
+    width: 100%;
+    height: 100%;
+    padding: 2rem 0.9rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.container nav{
+    position: relative;
+    height: 2.5rem;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container nav::after{
+    content: "";
+    background: silver;
+    width: 90%;
+    height: 1px;
+    position: absolute;
+    top: 2.4rem;
+    filter: blur(0.5px);
+}
+.container nav label{
+    color: aliceblue;
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 3rem;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.container input[type='radio']{
+    display: none;
+}
+.container nav .slider{
+    position: absolute;
+    height: 0.3rem;
+    background-color: #cc6799;
+    border-radius: 1.5rem;
+    width: 25%;
+    z-index: 1;
+    left: 5%;
+    bottom: 0;
+    transition: 0.3s;
+    filter: blur(0.5px);
+}
+#about:checked ~ nav .slider{
+    left: 38%;
+}
+#project:checked ~ nav .slider{
+    left: 71%;
+}
+#home:checked ~ nav .home{
+    color: #cc6799;
+}
+#about:checked ~ nav .about{
+    color: #cc6799;
+}
+#project:checked ~ nav .project{
+    color: #cc6799;
+}
+.container .logo{
+    position: absolute;
+    top: 3%;
+    right: 3%;
+    height: 7rem;
+    width: 7rem;
+    font-size: 2rem;
+    padding: 2rem 0;
+    display: flex;
+    color: aliceblue;
+}
+.container .logo h1{
+    transform: translateY(-2rem);
+}
+.container .logo span{
+    font-size:1rem;
+    font-weight: 600;
+}
+/* nav end */
+/* section start */
+section{
+    filter: blur(0.3px);
+    width: 80%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+section .content{
+    display: none;
+    color: aliceblue;
+    padding: 0 1rem;
+    width: 100%;
+    height: 90%;
+}
+section .content .title{
+    font-size: 2rem;
+    margin: 1.5rem 1rem 1rem;
+}
+#home:checked ~ section .home-content{
+    display: block;
+}
+#about:checked ~ section .about-content{
+    display: block;
+}
+#project:checked ~ section .project-content{
+    display: block;
+}
+/* section setup end */
+/* home section */
+.moon-container{
+    height: 20rem;
+    width: 20rem;
+    position: absolute;
+    top: 20%;
+    right: 2rem;
+}
+.moon{
+    background: #f5f5f5;
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
+    position: absolute;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    box-shadow: 0 0 0 0.6em rgba(255,255,255,0.05),0 0 0 1.2em rgba(255,255,255,0.05),0 0 0 1.8em rgba(255,255,255,0.05);
+}
+.moon:after{
+    position: absolute;
+    content: '';
+    background-color: #e6e6e6;
+    height: 0.9em;
+    width: 0.9em;
+    border-radius: 50%;
+    top: 3.75em;
+    left: 1.25em;
+    box-shadow: 0.9em -2.1em 0 0.2em #e6e6e6,1.5em -0.3em 0 -0.06em #e6e6e6;
+}
+.orbit{
+    height: 18.75em;
+    width: 18.75em;
+    border: 3px dashed #cc6799;
+    border-radius: 50%;
+    position: absolute;
+    left: -4.3em;
+    bottom: -4.4em;
+    animation: spin 12s infinite linear;
+}
+.orbit2{
+    animation-direction: reverse;
+    height: 26em;
+    width: 26em;
+    left: -8em;
+    top: -8em;
+    border: 4px dashed;
+}
+.orbit h6{
+    font-size: 3em;
+    font-weight: 100;
+    position: absolute;
+    top: 1em;
+}
+.orbit2 h6{
+    font-size: 2em;
+    color: #cc6799;
+    top: 3.5em;
+
+}
+.moon:hover .orbit{
+    cursor: pointer;
+    animation-play-state: paused;
+}
+/* about section */
+.brief{
+    display: inline-flex;
+    line-height: 2rem;
+}
+.brief h3{
+    font-weight: 500;
+}
+.title-names{
+    margin-left: 1rem;
+    overflow: hidden;
+    height: 2rem;
+}
+.title-names li{
+    list-style: none;
+    font-weight: 600;
+    animation: text-slide 12s steps(3) infinite;
+    position: relative;
+    top: 0;
+}
+.title-names li span{
+    position: relative;
+}
+.title-names li span::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 150%;
+    width: 100%;
+    background: #0e0d0e;
+    border-left: 2px solid #cc6799;
+    animation: typing 4s steps(26) infinite;
+}
+.links{
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 15%;
+    right: 0;
+}
+.links .icon{
+    margin: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    border-radius: 50%;
+}
+.links .icon span{
+    height: 5rem;
+    width: 5rem;
+    display: block;
+    text-align: center;
+    border-radius: 50%;
+    box-shadow: 0 0 0.7rem rgba(204, 103, 153, 0.8);
+}
+.links .icon span i{
+    font-size: 3rem;
+    line-height: 5rem;
+}
+.links .icon .tooltip{
+    position: absolute;
+    font-size: 1.2rem;
+    left: 0;
+    min-height: 1.25rem;
+    padding: 0.7rem 2rem ;
+    border-radius: 1.3rem;
+    opacity: 0;
+    pointer-events: none;
+    border: 3px solid #cc6799;
+    transition: 0.4s ease-out;
+    box-shadow: 0 0 0.7rem rgba(204, 103, 153, 0.8);
+}
+.links .icon:hover{
+    box-shadow: 0 0 1rem rgba(204, 103, 153, 0.8);
+}
+.links .icon:hover .tooltip{
+    left: -12rem;
+    opacity: 1;
+    pointer-events: auto;
+}
+.links .icon .tooltip:before{
+    position: absolute;
+    content: "";
+    background: #cc6799;
+    height: 1.5rem;
+    border-top: 3px solid #cc6799;
+    border-right: 3px solid #cc6799;
+    width: 1.5rem;
+    z-index: -1;
+    bottom: -0.3rem;
+    right: -0.7rem;
+    transform: translateY(-50%) rotate(45deg);
+}
+p{
+    margin-top: 0.5rem;
+    line-height: 1.5rem;
+    width: 50%;
+}
+/* project section */
+.timeline{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-self: center;
+    position: relative;
+    animation: slide-up 0.5s ease-out forwards;
+}
+.project-card{
+    border: 5px solid #cc6799;
+    height: 10rem;
+    width: 10rem;
+    position: relative;
+    opacity: 0;
+    animation: slide-up 0.5s ease-out forwards;
+    transition: 0.5s;
+    text-align: center;
+    padding: 1rem;
+    box-sizing: border-box;
+}
+.project-card h3{
+    margin-bottom: 1rem;
+}
+.project-card:hover{
+    background-color: #cc6799;
+    color: #0e0d0e;
+    cursor: pointer;
+}
+.project-card:hover {
+    background-color: #cc6799; 
+    color: #0e0d0e; 
+    cursor: pointer;
+    border-width: 5px;
+    border-color: white; 
+    box-shadow: 0 0 15px rgba(204, 103, 153, 0.8);
+}
+.even{
+    top: 50%;
+    animation-delay: 0.4s; 
+}
+.odd{
+    animation-delay: 0.2s;
+}
+.line{
+    position: absolute;
+    width: 85%;
+    max-height: 0.5rem;
+    top: 42%;
+    display: flex;
+    background:aliceblue;
+    justify-content: space-between;
+    border-radius: 20rem;
+    filter: blur(5px);
+    opacity: 0;
+    animation: slide-in 3s forwards;
+}
+.line .circle{
+    width: 1.2rem;
+    height: 1.2rem;
+    background: #cc6799;
+    border-radius: 50%;
+    border: 0.2rem solid ;
+    transform: translateY(-15%);
+    transition: 0.5s;
+    cursor: pointer;
+}
+.line .circle:hover{
+    transform: scale(1.5);
+}
+/* animations */
+@keyframes typing{
+    100%{
+        left: 100%;
+        margin: 0 -35px 0 35px;
+    }
+}
+@keyframes text-slide{
+    100%{
+        top: -6rem;
+    }
+}
+@keyframes slide-up{
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+        filter: blur(5px);
+    }
+    100% {
+        opacity: 1;
+        filter: blur(0);
+        transform: translateY(0);
+    }
+}
+@keyframes slide-in{
+    0%{
+        transform: scale(2);
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+    70%{
+        opacity: 1;
+        height: 0;
+        transform: translateX(0);
+    }
+    100%{
+        height: 0.5rem;
+        opacity: 1;
+        filter: blur(0);
+    }
+}
+@keyframes spin{
+    100%{
+        transform: rotate(360deg);
+    }
+}

@@ -1,0 +1,340 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,600&display=swap');
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body, html {
+    height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+    font-family: 'Playfair Display', sans-serif;
+    background-image: url('bg.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    scroll-behavior: smooth;
+}
+.container {
+    height: 100vh;
+    overflow-y: auto; 
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 0 5rem;
+}
+.section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    color: white;
+    position: relative;
+    scroll-snap-align: start;
+}
+/* hero start */
+.hero{
+    text-align: start;
+    font-size: 25px;
+}
+.hero p{
+    margin-top: 25px;
+}
+.hero span{
+    margin-right: 50px;
+    color: rgb(39, 222, 161);
+    text-shadow: 5px 2px 2px black;
+}
+.logo{
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+}
+.logo span{
+    position: absolute;
+    width: 100%;
+    transform: translateX(10%);
+    transition: 0.8s;
+}
+.logo:hover span{
+    animation: fadein 2s linear forwards;
+}
+.hero a{
+    border: 2px solid #ccc;
+    padding: 10px 25px;
+    text-align: center;
+    display: inline-block;
+    margin-top: 50px;
+    font-size: 20px;
+    text-decoration: none;
+    color: #fff;
+    transition: background-color 0.5s,color 0.5s, transform .5s, box-shadow .5s;
+}
+.hero a:hover{
+    transform: translateY(-10px);
+    background-color: #ccc;
+    color:darkgreen;
+    box-shadow: 0px 0px 80px 2px darkgreen;
+}
+/* hero end */
+/* sliding image */
+#one {
+    font-size: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(2, auto); 
+    gap: 20px;
+    padding:25px 0;
+    overflow: hidden;
+}
+#one h2{
+    text-align: center;
+    text-decoration: underline;
+    grid-column: 2/4;
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+.sliding-image{
+    grid-column: 3/5;
+    position: relative;
+    overflow: hidden;
+    transition: box-shadow 2s;
+    margin-left: 6rem;
+    border-radius: 1rem 2rem;
+}
+.image-X{
+    width: 400px;
+}
+.image-Y{
+    width: 400px;
+    object-fit: cover;
+    grid-column: 1/3;
+}
+.about{
+grid-column: 1/3;
+padding: 0 15px;
+}
+.about-y{
+    grid-column: 3/5;
+}
+.about h3{
+    text-decoration: underline;
+    font-size: 23px;
+}
+.about p{
+    margin-top: 10px;
+}
+.sliding-image img{
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+    cursor: pointer;
+}
+.sliding-image .content{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 50px;
+    color: #ccc;
+    transition: all 1s;
+    background-color: #0A2342;
+    transform: translateX(-100%);
+    cursor: pointer;
+}
+.sliding-image:hover{
+    box-shadow: 0px 0px 200px 1px darkgreen;
+}
+.sliding-image:hover .content{
+    transform: translateX(0);
+}
+.sliding-image:hover img{
+    transform: translateX(100%);
+}
+.sliding-image.image-Y .content{
+    transform: translateY(100%);
+}
+.sliding-image.image-Y:hover .content{
+    transform: translateX(0);
+}
+.sliding-image.image-Y:hover img{
+    transform: translateY(-100%);
+}
+/* sliding image end */
+/* slide-show */
+.slide-show{
+    position: relative;
+    width: 800px;
+    height: 500px;
+    background: url(https://cdn.pixabay.com/photo/2017/07/22/22/56/tiger-2530158_1280.jpg);
+    background-size:cover;
+    background-position: center;
+}
+.clip{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width:100% ;
+    height: 100%;
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+.clip1{
+    background:url(https://cdn.pixabay.com/photo/2016/11/14/04/45/elephant-1822636_1280.jpg);
+    background-size:cover;
+    background-position: center;
+    clip-path: polygon(15% 0,87% 0, 64% 100%, 33% 100%);
+}
+.clip2{
+    background: url(https://images.unsplash.com/photo-1452019761881-737a0073d2f7?q=80&w=873&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D);
+    background-size:cover;
+    background-position: center;
+    clip-path: polygon(85% 0,100% 0, 100% 100%, 65% 100%);
+}
+
+.slide-show:hover .clip{
+    clip-path: polygon(100% 0,100% 0,100% 100%,100% 100%);
+}
+
+.slide-show .clip:hover{
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+/* slide-show end */
+/* last card */
+#three {
+    flex-direction: column;
+    gap: 50px;
+}
+
+.card {
+    box-shadow: 0 30px 30px rgba(0, 0, 0, 0.5);
+    position: relative;
+}
+
+.card-text {
+    position: absolute;
+    bottom: 0;
+    width: 650px; 
+    height: 10px; 
+    background-color: rgba(15, 100, 80, 0.8);
+    transition: 0.5s;
+    display: grid;
+    grid-template-columns: repeat(4,auto);
+    grid-template-rows: auto;
+    gap: 18px;
+    padding: 10px;
+}
+
+.card img {
+    width: 650px;
+    object-fit: cover; 
+    transition: 0.5s;
+    filter: brightness(0.85); 
+}
+
+.card-text h2 {
+    font-size: 25px;
+    text-transform: uppercase;
+    margin: 25px; 
+    color: #f5fffa; 
+    opacity: 0; 
+    grid-column: 1/5;
+}
+#three h2 span{
+    text-shadow: 2px 2px #0A2342;
+    color: rgb(39, 222, 161);
+}
+.card-text p {
+    width: 80%; 
+    margin: 10px auto; 
+    font-size: 12px;
+    transition: 0.5s;
+    line-height: 25px;
+    color: #f5fffa; 
+    opacity: 0; 
+}
+
+.card-text a {
+    text-decoration: none;
+    color: #fff;
+    padding: 0px 10px;
+    border: 1px solid white;
+    display: inline-block;
+    transition: 0.2s;
+    line-height: 25px;
+    opacity: 0;
+}
+.end-text{
+    width: 280px;
+    height: 250px;
+    padding: 10px;
+    border: 2px solid white;
+    opacity: 0;
+    transition: 0.2s;
+    text-align: center;
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+.end-text ul li{
+    list-style: none;
+    margin-top: -10px;
+    margin-bottom: 15px;
+}
+.end-text h3{
+    font-size: 25px;
+}
+.card:hover .card-text {
+    height: 100%;
+    width: 650px; 
+    left: 0;
+    cursor: pointer;
+}
+
+.card:hover h2, .card:hover p,.card:hover .end-text{
+    opacity: 100%;
+    transition-delay: 0.2s;
+}
+.card:hover a{
+    opacity: 100%;
+}
+.card-text a:hover{
+    background: #f5fffa;
+    color: #0A2342;
+    transition-delay: 0;
+    box-shadow: 0px 0px 20px 5px darkolivegreen;
+}
+.img-container {
+    width: 100%;
+    height: 100%;
+    transition: 1s;
+}
+
+.card:hover img {
+    opacity: 0;
+}
+/* animations */
+@keyframes fadein{
+    from{
+        transform: translateX(-100%);
+        opacity: 0;
+        color: black;
+    }
+    to{
+        transform: translateX(10%);
+        opacity: 1;
+        background-color: transparent;
+        color: white;
+    }
+}
+/* project end! */

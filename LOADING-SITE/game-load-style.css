@@ -1,0 +1,286 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root{
+    --primarybg: rgb(66, 159, 89);        
+    --abtn: #2427dd;          
+    --bbtn: #25c822;           
+    --xbtn: #d9c61b;         
+    --ybtn: #e10b0b;            
+    --nav-btns: #9b9cad;       
+    --nav-btns-ctn: #746a6a;   
+    --screen: #1b2d4d;        
+    --leftcontroller: #434141; 
+    --center: #565654;           
+}
+body {
+    display: flex;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+    align-items: center;
+    background:var(--primarybg);
+    font-family: 'Courier New';
+}
+
+.console {
+    height: 20rem;
+    width: 35rem;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.left-handle, .center, .right-handle, .button, .nav-btn, .nav-btn-container, .screen {
+    border: 2px solid #444;
+}
+
+.left-handle {
+    height: 100%;
+    width: 100%;
+    border-radius: 7rem 0 7rem 3rem;
+    position: relative;
+    background-color: var(--leftcontroller);
+    box-shadow:-2px 2px 2px 1px rgba(0, 0, 0, 0.3) ,0 0 0 0.5px rgba(0, 0, 0, 0.3),inset 0.3rem -0.5rem 0.5rem 0px rgba(0, 0, 0, 0.3);
+    animation: left 2s;
+}
+
+.right-handle {
+    height: 100%;
+    width: 100%;
+    border-radius: 0 7rem 3rem 7rem;
+    position: relative;
+    background-color: var(--leftcontroller);
+    box-shadow:2px 2px 2px 1px rgba(0, 0, 0, 0.3) ,0 0 0 0.5px rgba(0, 0, 0, 0.3),inset 0.3rem -0.5rem 0.5rem 0px rgba(0, 0, 0, 0.3);
+    animation: right 2s;
+}
+
+.center {
+    height: 11rem;
+    width: 80rem;
+    border-left: none;
+    border-right: none;
+    background-color: var(--center);
+    box-shadow: 0 0 0.5px rgba(0, 0, 0, 0.3), inset 0 0 0 2px rgba(0, 0, 0, 0.2);
+    animation: main 2s;
+}
+
+.button {
+    position: absolute;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    align-content: center;
+    color: white;
+    font-weight: bold;
+    box-shadow: inset 0px 0px 4px 4px rgba(0,0,0,0.4), 0 1px 1px 1px rgba(0, 0, 0, 0.5);
+}
+
+#A-btn {
+    left: 35%;
+    bottom: 40%;
+    background-color: var(--abtn);
+}
+
+#B-btn {
+    right: 10%;
+    bottom: 50%;
+    background-color: var(--bbtn);
+}
+
+#X-btn {
+    bottom: 50%;
+    left: 10%;
+    background-color: var(--xbtn);
+}
+
+#Y-btn {
+    bottom: 60%;
+    left: 35%;
+    background-color: var(--ybtn);
+}
+
+.nav-btn-container {
+    position: absolute;
+    top: 25%;
+    left: 3.2%;
+    width: 6rem;
+    height: 6rem;
+    border-radius: 50%;
+    background-color: var(--nav-btns-ctn);
+}
+
+.nav-btn {
+    position: absolute;
+    width: 1.3rem;
+    height: 2rem;
+    background-color: var(--nav-btns);
+    z-index: 1;
+    box-shadow: inset 0px 0px 2px 3px rgba(0,0,0,0.4), 0 1px 2px 1px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5rem 0.5rem 0.2rem 0.2rem;
+}
+
+#Down-btn {
+    left: 40%;
+    bottom: 40%;
+    transform: rotate(180deg);
+}
+
+#Left-btn {
+    right: 13%;
+    bottom: 50%;
+    transform: rotate(90deg);
+}
+
+#Right-btn {
+    bottom: 50%;
+    left: 13%;
+    transform: rotate(-90deg);
+}
+
+#Up-btn {
+    bottom: 60%;
+    left: 40%;
+}
+
+.center {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+    gap: 0.5rem;
+}
+
+.screen {
+    height: 90%;
+    background-color: var(--screen);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.3);
+}
+
+.btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.btns button {
+    color:  #e2d9d9;
+    padding: 0.2rem 0.4rem;
+    border-radius: 10%;
+    font-size: 10px;
+    box-shadow: 0 1px 0 2px rgba(0, 0, 0, 0.3), inset 0 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.text {
+    color: white;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1rem;
+    opacity: 0;
+    font-family: 'Gill Sans';
+    animation: display 1s linear 2s forwards;
+}
+.load {
+    animation: loading 1s infinite steps(2);
+}
+#one {
+    animation-delay: 2.2s;
+}
+
+#two {
+    animation-delay: 2.4s;
+}
+
+#three {
+    animation-delay: 2.6s;
+}
+#four {
+    animation-delay: 2.8s;
+}
+.loadbar {
+    margin-top: 1.5rem;
+    height: 1rem;
+    width: 0;
+    border-radius: 0 3px 3px 0;
+    animation: loading-bar 3s infinite 2s;
+    background: #25c822;
+}
+@keyframes left{
+    from{
+        opacity: 0;
+        transform: translateX(-5rem);
+        background-color: transparent;
+    }
+    to{
+        opacity:1;
+        transform: translateX(0);
+        background-color: var(--leftcontroller);
+    }
+}
+@keyframes right{
+    from{
+        opacity: 0;
+        transform: translateX(5rem);
+        background-color: transparent;
+    }
+    to{
+        opacity:1;
+        transform: translateX(0);
+        background-color: var(--leftcontroller);
+    }
+}
+@keyframes main{
+    from{
+        opacity: 0;
+        transform: translateY(-5rem);
+        background-color: transparent;
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+        background-color: var(--center);
+    }
+}
+@keyframes display{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes loading {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes loading-bar {
+    0% {
+        width: 0%;
+    }
+    10% {
+        width: 5%;
+    }
+    20% {
+        width: 8%;
+    }
+    40% {
+        width: 30%;
+    }
+    60% {
+        width: 70%;
+    }
+    100% {
+        width: 100%;
+    }
+}
